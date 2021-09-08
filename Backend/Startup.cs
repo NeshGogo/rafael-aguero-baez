@@ -1,4 +1,6 @@
 using Backend.Data;
+using Backend.Data.Deparments;
+using Backend.Data.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,9 @@ namespace Backend
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("AppConnectionString")));
+            
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
             services.AddAutoMapper(typeof(Startup));
            
