@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Backend.DTOs;
 using Backend.Entities;
 using Backend.Services.Deparments;
 using Microsoft.AspNetCore.Mvc;
@@ -16,22 +17,22 @@ namespace Backend.Controllers
         public DepartmentsController(IDepartmentService service, IMapper mapper)
             : base(service, mapper) { }
 
-        /*[HttpGet]
-        public async Task<ActionResult<List<UserDTO>>> Get()
+        [HttpGet]
+        public async Task<ActionResult<List<DepartmentDTO>>> Get()
         {
-            return await Get<UserDTO>();
+            return await Get<DepartmentDTO>();
         }
 
-        [HttpGet("{id:int}", Name = "GetUser")]
-        public async Task<ActionResult<UserDTO>> Get(int id)
+        [HttpGet("{id:int}", Name = "GetDepartment")]
+        public async Task<ActionResult<DepartmentDTO>> Get(int id)
         {
-            return await Get<UserDTO>(id);
+            return await Get<DepartmentDTO>(id);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(CreateUserDTO createUserDTO)
+        public async Task<ActionResult> Post(CreateDepartmentDTO createDepartmentDTO)
         {
-            return await Post<UserDTO, CreateUserDTO>(createUserDTO, "GetUser");
-        }*/
+            return await Post<DepartmentDTO, CreateDepartmentDTO>(createDepartmentDTO, "GetDepartment");
+        }
     }
 }

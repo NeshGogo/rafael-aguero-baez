@@ -14,6 +14,9 @@ namespace Backend.Helpers
         {
             CreateMap<UserDTO, User>().ReverseMap();
             CreateMap<CreateUserDTO, User>();
+
+            CreateMap<DepartmentDTO, Department>().ReverseMap();
+            CreateMap<CreateDepartmentDTO, Department>();
         }
     }
 }
