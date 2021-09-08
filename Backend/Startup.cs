@@ -3,6 +3,7 @@ using Backend.Data;
 using Backend.Data.Deparments;
 using Backend.Data.Users;
 using Backend.Helpers;
+using Backend.Services.Deparments;
 using Backend.Services.Users;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +44,8 @@ namespace Backend
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
