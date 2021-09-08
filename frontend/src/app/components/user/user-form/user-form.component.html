@@ -1,0 +1,91 @@
+<section>
+  <h2 class="text-center mb-4">Registrar Usuario</h2>
+  <form [formGroup]="form" (ngSubmit)="send($event)">
+    <div class="row mb-3">
+      <div class="col-sm-6 mb-2">
+        <label> Nombre completo</label>
+        <input
+          type="text"
+          formControlName="fullName"
+          class="form-control"
+          placeholder="Nombre completo"
+        />
+        <p *ngIf="fullNameField?.touched && fullNameField?.hasError('required')" class="text-danger">
+          * Este campo es requerido.
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <label>Cedula</label>
+        <input
+          type="text"
+          formControlName="cedula"
+          class="form-control"
+          placeholder="Cedula"
+          [mask]="cedulaMask"
+        />
+        <p *ngIf="cedulaField?.touched && cedulaField?.hasError('required')" class="text-danger">
+          * Este campo es requerido.
+        </p>
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <label>Genero</label>
+      <div class="col-sm-6 mb-2">
+        <div class="form-check" *ngFor="let gender of genders">
+          <input type="radio" class="form-check-input" [value]="gender" formControlName="gender" name="gender">
+          <label class="form-check-label" for="gender">
+            {{gender}}
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label>Fecha de Nacimiento</label>
+        <input
+          type="date"
+          formControlName="birthDate"
+          class="form-control"
+          placeholder="Fecha de nacimiento"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-6 mb-2">
+        <label>Departamento</label>
+        <select class="form-select" formControlName="departmentId">
+          <option value="">Selecciona un departamento</option>
+          <option *ngFor="let department of departments$ | async" [value]="department.id">{{department.name}}</option>
+        </select>
+        <p *ngIf="departmentField?.touched && departmentField?.hasError('required')" class="text-danger">
+          * Este campo es requerido.
+        </p>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label>Posicion</label>
+        <input
+          type="text"
+          formControlName="position"
+          class="form-control"
+          placeholder="Posicion"
+        />
+        <p *ngIf="positionField?.touched && positionField?.hasError('required')" class="text-danger">
+          * Este campo es requerido.
+        </p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-6">
+        <label>Supervisor Inmediato</label>
+        <input
+          type="text"
+          formControlName="immediateSupervisor"
+          class="form-control"
+          placeholder="Supervisor inmediato"
+        />
+      </div>
+    </div>
+    <div class="mt-2">
+      <button type="submit" class="btn btn-success w-100">Enviar</button>
+    </div>
+  </form>
+</section>

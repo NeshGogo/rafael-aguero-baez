@@ -23,7 +23,7 @@ namespace Backend.Services.Users
 
         public async Task<List<User>> GetAsync()
         {
-            return await repository.GetAsync();
+            return await repository.GetAsync("Department");
         }
 
         public async Task<User> GetAsync(int id)

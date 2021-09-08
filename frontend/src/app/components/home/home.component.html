@@ -1,0 +1,4 @@
+<section class="container">
+  <app-user-form class="card card-body mt-5 shadow-sm" (inserted)="add($event)"></app-user-form>
+  <app-user-item-list class="card card-body mt-5 shadow-sm" [users]="users"></app-user-item-list>
+</section>

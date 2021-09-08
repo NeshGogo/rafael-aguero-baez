@@ -40,5 +40,10 @@ namespace Backend.Data
         {
             return await Entities.FirstOrDefaultAsync(t => t.Id == id);
         }
+
+        public async Task<List<T>> GetAsync(string includeValue)
+        {
+            return await Entities.Include(includeValue).ToListAsync();
+        }
     }
 }

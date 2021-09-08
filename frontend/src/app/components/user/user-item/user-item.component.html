@@ -1,0 +1,9 @@
+<div class="border-bottom mb-3">
+  <h6 class="m-0">
+    {{ user?.fullName }},
+    {{ user?.position}} de {{user?.department?.name}}
+  </h6>
+  <p class="text-secondary m-0">Ced:{{user?.cedula | mask: cedulaMask}}</p>
+  <p class="text-secondary m-0">Fecha de nacimiento: {{user?.birthDate | date}}</p>
+  <p class="text-secondary m-0">Supervisor: {{user?.immediateSupervisor}}</p>
+</div>
